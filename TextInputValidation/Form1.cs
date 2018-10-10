@@ -25,9 +25,18 @@ namespace TextInputValidation
 
         private void ValidationBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Regex.IsMatch(e.KeyChar.ToString(), @"[a-zA-Z\bß ]"))
+            if (!Regex.IsMatch(e.KeyChar.ToString(), @"[a-zA-Z\bäöüß 0-9]"))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void ValidationBox_Validated(object sender, EventArgs e)
+        {
+            var regex = new Regex("bla");
+            if (existingItems.Contains(ValidationBox.Text))
+            {
+                errorProvider1.SetError(ValidationBox, $"Table {ValidationBox.Text} already exists!");
             }
         }
     }
