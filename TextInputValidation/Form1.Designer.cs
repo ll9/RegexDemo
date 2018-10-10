@@ -42,6 +42,7 @@
             this.ValidationBox.Name = "ValidationBox";
             this.ValidationBox.Size = new System.Drawing.Size(100, 20);
             this.ValidationBox.TabIndex = 0;
+            this.ValidationBox.TextChanged += new System.EventHandler(this.ValidationBox_TextChanged);
             this.ValidationBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationBox_KeyPress);
             this.ValidationBox.Validated += new System.EventHandler(this.ValidationBox_Validated);
             // 

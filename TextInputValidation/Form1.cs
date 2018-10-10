@@ -23,6 +23,7 @@ namespace TextInputValidation
             InitializeComponent();
         }
 
+        // Handle single letter input
         private void ValidationBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Regex.IsMatch(e.KeyChar.ToString(), @"[a-zA-Z\bäöüß 0-9]"))
@@ -31,6 +32,13 @@ namespace TextInputValidation
             }
         }
 
+        // Handle paste
+        private void ValidationBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidationBox.Text = Regex.Replace(ValidationBox.Text, "[^a-zA-Z\bäöüß 0-9]", "");
+        }
+
+        // Handle Special cases (for example special value is not allowed, complex regex etc.)
         private void ValidationBox_Validated(object sender, EventArgs e)
         {
             var regex = new Regex("bla");
@@ -39,5 +47,6 @@ namespace TextInputValidation
                 errorProvider1.SetError(ValidationBox, $"Table {ValidationBox.Text} already exists!");
             }
         }
+
     }
 }
