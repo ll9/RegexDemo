@@ -29,12 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.ValidationBox = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // ValidationBox
+            // 
+            this.ValidationBox.Location = new System.Drawing.Point(49, 31);
+            this.ValidationBox.Name = "ValidationBox";
+            this.ValidationBox.Size = new System.Drawing.Size(100, 20);
+            this.ValidationBox.TabIndex = 0;
+            this.ValidationBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidationBox_KeyPress);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(271, 207);
+            this.Controls.Add(this.ValidationBox);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox ValidationBox;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
